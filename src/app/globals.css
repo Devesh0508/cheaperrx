@@ -1,0 +1,82 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Skip navigation — hidden until focused */
+.skip-nav {
+  position: absolute;
+  left: -9999px;
+  top: auto;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+}
+.skip-nav:focus {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 9999;
+  width: auto;
+  height: auto;
+  padding: 1rem 1.5rem;
+  background: #0891b2;
+  color: #fff;
+  font-weight: 700;
+  font-size: 1.1rem;
+  border-radius: 0 0 0.75rem 0;
+  outline: 3px solid #fff;
+}
+
+@layer base {
+  html {
+    font-size: 18px;
+    line-height: 1.8;
+    color: #1a1a2e;
+  }
+
+  body {
+    background-color: #ffffff;
+    min-height: 100vh;
+  }
+
+  /* Ensure all buttons meet minimum touch target */
+  button,
+  a[role="button"],
+  [type="button"],
+  [type="submit"] {
+    min-height: 56px;
+  }
+
+  /* Accessible focus ring */
+  :focus-visible {
+    outline: 3px solid #0891b2;
+    outline-offset: 2px;
+  }
+}
+
+@layer components {
+  /* Primary action button */
+  .btn-primary {
+    @apply bg-[#0891B2] hover:bg-[#0e7490] text-white font-semibold px-6 py-4 rounded-xl text-xl min-h-[56px] transition-colors duration-200 flex items-center justify-center gap-2;
+  }
+
+  /* Green / savings button */
+  .btn-green {
+    @apply bg-[#16A34A] hover:bg-[#15803d] text-white font-semibold px-6 py-4 rounded-xl text-xl min-h-[56px] transition-colors duration-200 flex items-center justify-center gap-2;
+  }
+
+  /* Outlined secondary button */
+  .btn-outline {
+    @apply border-2 border-[#0891B2] text-[#0891B2] hover:bg-[#0891B2] hover:text-white font-semibold px-6 py-4 rounded-xl text-xl min-h-[56px] transition-colors duration-200 flex items-center justify-center gap-2;
+  }
+
+  /* Card container */
+  .card {
+    @apply bg-white border border-gray-200 rounded-2xl p-6 shadow-sm;
+  }
+
+  /* Large form input */
+  .input-field {
+    @apply w-full border-2 border-gray-300 focus:border-[#0891B2] rounded-xl px-5 py-4 text-xl text-[#1a1a2e] placeholder-gray-400 outline-none transition-colors duration-200 min-h-[64px];
+  }
+}
