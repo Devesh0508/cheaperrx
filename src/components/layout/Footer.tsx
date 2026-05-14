@@ -14,6 +14,10 @@ export function Footer() {
             Privacy Policy
           </Link>
           <span className="mx-2 text-gray-300">|</span>
+          <Link href="/terms" className="hover:text-[#0891B2] transition-colors">
+            Terms of Service
+          </Link>
+          <span className="mx-2 text-gray-300">|</span>
           <Link href="/contact" className="hover:text-[#0891B2] transition-colors">
             Contact Us
           </Link>
