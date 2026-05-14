@@ -252,28 +252,44 @@ export default async function SearchPage({ searchParams }: SearchPageProps) {
 
           {/* ── QUERY WITH NO RESULTS ── */}
           {query && (!drug || allResults.length === 0) && (
-            <div className="text-center py-20">
-              <p className="text-6xl mb-4" aria-hidden="true">🔍</p>
-              <h1 className="text-2xl font-bold text-[#1a1a2e] mb-3">
-                Hmm, we couldn&apos;t find &ldquo;{query}&rdquo;
+            <div className="text-center py-16">
+              <p className="text-6xl mb-4" aria-hidden="true">💊</p>
+              <h1 className="text-2xl font-bold text-[#1a1a2e] mb-2">
+                We don&apos;t have prices for &ldquo;{query}&rdquo; yet
               </h1>
-              <p className="text-xl text-gray-500 mb-6">
-                Try searching for just the first few letters, or check the spelling.
+              <p className="text-lg text-gray-500 mb-8">
+                Be the first to submit a price and help other Calgarians save money.
               </p>
-              <div className="space-y-3 text-lg text-gray-400">
-                <p>Common medications we have prices for:</p>
-                <div className="flex flex-wrap justify-center gap-3">
-                  {["Metformin", "Atorvastatin", "Lisinopril", "Omeprazole", "Lipitor"].map((name) => (
-                    <Link
-                      key={name}
-                      href={`/search?q=${encodeURIComponent(name)}`}
-                      className="bg-white border border-gray-200 hover:border-[#0891B2] rounded-xl px-4 py-2 text-[#1a1a2e] hover:text-[#0891B2] transition-colors font-medium"
-                    >
-                      {name}
-                    </Link>
-                  ))}
-                </div>
+
+              {/* Primary CTA */}
+              <Link
+                href={`/submit-price?q=${encodeURIComponent(query)}`}
+                className="inline-flex items-center gap-2 bg-[#0891B2] hover:bg-[#0e7490] text-white font-semibold rounded-xl px-6 py-3.5 text-lg transition-colors mb-10"
+              >
+                📬 Submit a price for &ldquo;{query}&rdquo;
+              </Link>
+
+              {/* Divider */}
+              <div className="border-t border-gray-200 my-8" />
+
+              {/* Suggestions */}
+              <p className="text-base text-gray-400 mb-4">Or try searching for one of these:</p>
+              <div className="flex flex-wrap justify-center gap-3">
+                {["Tylenol", "Advil", "Ibuprofen", "Metformin", "Atorvastatin", "Lisinopril", "Omeprazole", "Amoxicillin"].map((name) => (
+                  <Link
+                    key={name}
+                    href={`/search?q=${encodeURIComponent(name)}`}
+                    className="bg-white border border-gray-200 hover:border-[#0891B2] rounded-xl px-4 py-2 text-[#1a1a2e] hover:text-[#0891B2] transition-colors font-medium text-base"
+                  >
+                    {name}
+                  </Link>
+                ))}
               </div>
+
+              {/* Spelling hint */}
+              <p className="text-sm text-gray-400 mt-6">
+                Tip: try the generic name (e.g. &ldquo;acetaminophen&rdquo; instead of &ldquo;Tylenol&rdquo;) or just the first few letters.
+              </p>
             </div>
           )}
 

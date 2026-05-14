@@ -13,6 +13,19 @@ function getStripe() {
 }
 
 export async function POST() {
+  // If Stripe isn't configured, return a clear setup message instead of crashing
+  if (!process.env.STRIPE_SECRET_KEY || !process.env.STRIPE_PRICE_ID) {
+    return NextResponse.json(
+      {
+        error:
+          "Payment processing is not yet configured. " +
+          "Visit /admin and use the Users page to manually grant Pro access, " +
+          "or add your Stripe keys to .env.local.",
+      },
+      { status: 503 }
+    );
+  }
+
   try {
     const stripe = getStripe();
     const user = await requireAuth();
