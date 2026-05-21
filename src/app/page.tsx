@@ -1,7 +1,21 @@
+import type { Metadata } from "next";
 import Link from "next/link";
 import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
 import { SearchBox } from "@/components/search/SearchBox";
+
+export const metadata: Metadata = {
+  title: "CheaperRx — Find the Cheapest Pharmacy for Your Prescription",
+  description:
+    "Compare prescription and OTC drug prices at pharmacies near you across Calgary and Canada. Free, instant, no account needed. Save up to 80% on your medications.",
+  openGraph: {
+    title: "CheaperRx — Find the Cheapest Pharmacy Near You",
+    description:
+      "Compare drug prices at Shoppers, Walmart, London Drugs, and 20+ more Calgary pharmacies. Free and instant — no account needed.",
+    url: "/",
+  },
+  alternates: { canonical: "/" },
+};
 
 export default function HomePage() {
   return (

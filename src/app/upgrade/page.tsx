@@ -4,7 +4,12 @@ import { Footer } from "@/components/layout/Footer";
 import { isPro } from "@/lib/auth";
 import { redirect } from "next/navigation";
 
-export const metadata = { title: "Upgrade to Pro — CheaperRx" };
+export const metadata = {
+  title: "Upgrade to Pro — CheaperRx",
+  description:
+    "Unlock all 20+ pharmacies, save medications, set price drop alerts, and track your family — for just $7.99/month. 7-day free trial, cancel anytime.",
+  alternates: { canonical: "/upgrade" },
+};
 
 const FREE_FEATURES = [
   "Search any medication",

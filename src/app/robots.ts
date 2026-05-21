@@ -7,10 +7,11 @@ export default function robots(): MetadataRoute.Robots {
     rules: [
       {
         userAgent: "*",
-        allow: ["/", "/search", "/submit-price", "/upgrade", "/login", "/signup"],
+        allow: ["/", "/search", "/submit-price", "/upgrade", "/login", "/signup", "/contact", "/privacy", "/terms"],
         disallow: ["/admin", "/dashboard", "/medications", "/family", "/alerts", "/settings", "/insurance", "/api/"],
       },
     ],
     sitemap: `${base}/sitemap.xml`,
+    host: base,
   };
 }
