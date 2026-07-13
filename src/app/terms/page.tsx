@@ -18,7 +18,7 @@ export default function TermsPage() {
           <p className="text-gray-400 text-sm mb-2">Last updated: May 15, 2026</p>
           <p className="text-gray-500 text-sm mb-8">
             Questions? <Link href="/contact" className="text-[#0891B2] hover:underline">Contact us</Link> or email{" "}
-            <a href="mailto:help@cheaperrx.ca" className="text-[#0891B2] hover:underline">help@cheaperrx.ca</a>
+            <a href="mailto:help@cheaperx.ca" className="text-[#0891B2] hover:underline">help@cheaperx.ca</a>
           </p>
 
           <div className="space-y-8 text-gray-700 text-base leading-relaxed">
@@ -202,8 +202,8 @@ export default function TermsPage() {
               <p className="mt-2">
                 Any dispute arising from these terms or your use of the Service shall first be
                 attempted to be resolved informally by contacting us at{" "}
-                <a href="mailto:help@cheaperrx.ca" className="text-[#0891B2] hover:underline">
-                  help@cheaperrx.ca
+                <a href="mailto:help@cheaperx.ca" className="text-[#0891B2] hover:underline">
+                  help@cheaperx.ca
                 </a>. If unresolved after 30 days, disputes shall be submitted to the courts
                 of Calgary, Alberta.
               </p>
@@ -217,8 +217,8 @@ export default function TermsPage() {
                   contact us
                 </Link>{" "}
                 or email{" "}
-                <a href="mailto:help@cheaperrx.ca" className="text-[#0891B2] hover:underline">
-                  help@cheaperrx.ca
+                <a href="mailto:help@cheaperx.ca" className="text-[#0891B2] hover:underline">
+                  help@cheaperx.ca
                 </a>.
               </p>
             </section>

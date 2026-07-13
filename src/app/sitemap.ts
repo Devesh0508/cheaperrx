@@ -1,7 +1,7 @@
 import { MetadataRoute } from "next";
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const base = process.env.NEXT_PUBLIC_BASE_URL ?? "https://cheaperrx.ca";
+  const base = process.env.NEXT_PUBLIC_BASE_URL ?? "https://cheaperx.ca";
   const now = new Date();
 
   const staticPages: MetadataRoute.Sitemap = [

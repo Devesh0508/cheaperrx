@@ -14,7 +14,7 @@ export default function ContactSuccessPage() {
           <h1 className="text-3xl font-bold text-[#1a1a2e] mb-3">Message sent!</h1>
           <p className="text-xl text-gray-500 mb-8">
             Thanks for reaching out. We usually reply within 1 business day at{" "}
-            <strong>help@cheaperrx.ca</strong>.
+            <strong>help@cheaperx.ca</strong>.
           </p>
           <div className="space-y-3">
             <Link

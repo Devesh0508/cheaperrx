@@ -9,7 +9,7 @@ const inter = Inter({
   display: "swap",
 });
 
-const BASE_URL = process.env.NEXT_PUBLIC_BASE_URL ?? "https://cheaperrx.ca";
+const BASE_URL = process.env.NEXT_PUBLIC_BASE_URL ?? "https://cheaperx.ca";
 
 export const metadata: Metadata = {
   metadataBase: new URL(BASE_URL),

@@ -24,8 +24,8 @@ export default function PrivacyPage() {
               </p>
               <p className="mt-2">
                 Questions? Email us at{" "}
-                <a href="mailto:help@cheaperrx.ca" className="text-[#0891B2] hover:underline">
-                  help@cheaperrx.ca
+                <a href="mailto:help@cheaperx.ca" className="text-[#0891B2] hover:underline">
+                  help@cheaperx.ca
                 </a>
               </p>
             </section>
@@ -103,8 +103,8 @@ export default function PrivacyPage() {
               </ul>
               <p className="mt-3">
                 To exercise any of these rights, email{" "}
-                <a href="mailto:help@cheaperrx.ca" className="text-[#0891B2] hover:underline">
-                  help@cheaperrx.ca
+                <a href="mailto:help@cheaperx.ca" className="text-[#0891B2] hover:underline">
+                  help@cheaperx.ca
                 </a>
               </p>
             </section>

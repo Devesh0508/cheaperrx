@@ -35,8 +35,8 @@ export async function sendContactMessage(formData: FormData) {
 
   // If you add an email service (Resend, SendGrid, etc.), call it here:
   // await resend.emails.send({
-  //   from: "noreply@cheaperrx.ca",
-  //   to: "help@cheaperrx.ca",
+  //   from: "noreply@cheaperx.ca",
+  //   to: "help@cheaperx.ca",
   //   replyTo: email,
   //   subject: subjectLine,
   //   text: `From: ${firstName} ${lastName} <${email}>\n\n${message}`,

@@ -299,7 +299,7 @@ export default function HomePage() {
               <SearchBox size="hero" placeholder="Search a medication to get started..." />
             </div>
             <p className="text-blue-200 text-lg">
-              🍁 Serving Canadians since 2026 · help@cheaperrx.ca
+              🍁 Serving Canadians since 2026 · help@cheaperx.ca
             </p>
           </div>
         </section>

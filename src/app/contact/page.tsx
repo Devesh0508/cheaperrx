@@ -116,10 +116,10 @@ export default function ContactPage() {
                     <h3 className="font-bold text-[#1a1a2e] text-lg mb-1">Email us directly</h3>
                     <p className="text-gray-500 mb-2">We typically respond within 24 hours on business days.</p>
                     <a
-                      href="mailto:help@cheaperrx.ca"
+                      href="mailto:help@cheaperx.ca"
                       className="text-[#0891B2] font-semibold hover:underline text-lg"
                     >
-                      help@cheaperrx.ca
+                      help@cheaperx.ca
                     </a>
                   </div>
                 </div>

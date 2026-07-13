@@ -26,10 +26,10 @@ export function Footer() {
         <p className="text-gray-500 text-lg">
           Questions? Email us:{" "}
           <a
-            href="mailto:help@cheaperrx.ca"
+            href="mailto:help@cheaperx.ca"
             className="text-[#0891B2] hover:underline font-medium"
           >
-            help@cheaperrx.ca
+            help@cheaperx.ca
           </a>
         </p>
       </div>

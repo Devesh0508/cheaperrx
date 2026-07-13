@@ -56,7 +56,7 @@ export default function ForgotPasswordPage({ searchParams }: ForgotPasswordPageP
               <>
                 {error && (
                   <div role="alert" className="mb-6 bg-amber-50 border border-amber-200 rounded-xl p-4 text-amber-800 text-lg">
-                    Something went wrong. Please try again or email us at help@cheaperrx.ca
+                    Something went wrong. Please try again or email us at help@cheaperx.ca
                   </div>
                 )}
 
