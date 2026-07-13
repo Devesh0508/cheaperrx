@@ -6,7 +6,9 @@ interface Suggestion {
   id: string;
   display_name: string;
   subtitle: string;
-  search_term: string;
+  /** Full navigation URL — either /search?q=... or /pharmacy/[id] */
+  href: string;
+  type: "drug" | "pharmacy";
 }
 
 interface SearchBoxProps {
@@ -65,19 +67,22 @@ export function SearchBox({
     return () => document.removeEventListener("mousedown", onMouseDown);
   }, []);
 
-  function go(term: string) {
+  function go(suggestion?: Suggestion) {
     setOpen(false);
     setActiveIndex(-1);
-    const base = action.includes("?") ? action + "&" : action + "?";
-    router.push(`${base}q=${encodeURIComponent(term)}`);
+    if (suggestion) {
+      router.push(suggestion.href);
+    } else {
+      const term = value.trim();
+      if (!term) { inputRef.current?.focus(); return; }
+      const base = action.includes("?") ? action + "&" : action + "?";
+      router.push(`${base}q=${encodeURIComponent(term)}`);
+    }
   }
 
   function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
-    const term =
-      activeIndex >= 0 ? suggestions[activeIndex].search_term : value.trim();
-    if (term) go(term);
-    else inputRef.current?.focus();
+    go(activeIndex >= 0 ? suggestions[activeIndex] : undefined);
   }
 
   function handleKeyDown(e: React.KeyboardEvent<HTMLInputElement>) {
@@ -95,8 +100,8 @@ export function SearchBox({
 
   const isHero = size === "hero";
   const defaultPlaceholder = isHero
-    ? "Search a medication name (e.g. Lipitor, Metformin)"
-    : "Search another medication...";
+    ? "Search a drug or pharmacy (e.g. Lipitor, Costco, Shoppers)"
+    : "Search a drug or pharmacy...";
 
   return (
     <div ref={wrapRef} className="relative w-full">
@@ -163,16 +168,27 @@ export function SearchBox({
               id={`suggestion-${i}`}
               role="option"
               aria-selected={i === activeIndex}
-              onClick={() => go(s.search_term)}
+              onClick={() => go(s)}
               onMouseEnter={() => setActiveIndex(i)}
-              className={`flex flex-col px-5 py-3 cursor-pointer transition-colors border-b border-gray-100 last:border-0 ${
+              className={`flex items-center gap-3 px-5 py-3 cursor-pointer transition-colors border-b border-gray-100 last:border-0 ${
                 i === activeIndex ? "bg-[#e0f2fe]" : "hover:bg-gray-50"
               }`}
             >
-              <span className="font-semibold text-[#1a1a2e] text-lg">
-                {s.display_name}
+              {/* Icon: pill for drugs, building for pharmacies */}
+              <span className="text-2xl flex-shrink-0" aria-hidden="true">
+                {s.type === "pharmacy" ? "🏥" : "💊"}
               </span>
-              <span className="text-gray-400 text-sm">{s.subtitle}</span>
+              <span className="flex flex-col min-w-0">
+                <span className="font-semibold text-[#1a1a2e] text-lg leading-snug">
+                  {s.display_name}
+                </span>
+                <span className="text-gray-400 text-sm truncate">{s.subtitle}</span>
+              </span>
+              {s.type === "pharmacy" && (
+                <span className="ml-auto flex-shrink-0 text-xs font-semibold text-[#0891B2] bg-blue-50 border border-blue-100 rounded-full px-2.5 py-0.5">
+                  Browse store
+                </span>
+              )}
             </li>
           ))}
         </ul>

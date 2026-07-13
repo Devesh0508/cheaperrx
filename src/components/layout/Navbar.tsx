@@ -46,23 +46,30 @@ export async function Navbar() {
           <span className="text-xl font-bold text-[#1a1a2e]">CheaperRx</span>
         </Link>
 
-        {/* Pro nav links — desktop only */}
-        {user && isPro && (
-          <div className="hidden md:flex items-center gap-5 text-base font-medium">
-            <Link href="/medications" className="text-gray-600 hover:text-[#0891B2] transition-colors">
-              My Meds
-            </Link>
-            <Link href="/family" className="text-gray-600 hover:text-[#0891B2] transition-colors">
-              Family
-            </Link>
-            <Link href="/alerts" className="text-gray-600 hover:text-[#0891B2] transition-colors">
-              Alerts
-            </Link>
-            <Link href="/insurance" className="text-gray-600 hover:text-[#0891B2] transition-colors">
-              Insurance
-            </Link>
-          </div>
-        )}
+        {/* Nav links — desktop only */}
+        <div className="hidden md:flex items-center gap-5 text-base font-medium">
+          {/* Always visible */}
+          <Link href="/pharmacies" className="text-gray-600 hover:text-[#0891B2] transition-colors">
+            Pharmacies
+          </Link>
+          {/* Pro-only */}
+          {user && isPro && (
+            <>
+              <Link href="/medications" className="text-gray-600 hover:text-[#0891B2] transition-colors">
+                My Meds
+              </Link>
+              <Link href="/family" className="text-gray-600 hover:text-[#0891B2] transition-colors">
+                Family
+              </Link>
+              <Link href="/alerts" className="text-gray-600 hover:text-[#0891B2] transition-colors">
+                Alerts
+              </Link>
+              <Link href="/insurance" className="text-gray-600 hover:text-[#0891B2] transition-colors">
+                Insurance
+              </Link>
+            </>
+          )}
+        </div>
 
         {/* Right side — desktop */}
         <div className="flex items-center gap-4">
