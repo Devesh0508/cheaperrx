@@ -9,7 +9,11 @@
 import { createClient } from '@supabase/supabase-js';
 
 const SUPABASE_URL = 'https://qxtansvfpeufuvqdfqvd.supabase.co';
-const SERVICE_KEY  = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InF4dGFuc3ZmcGV1ZnV2cWRmcXZkIiwicm9sZSI6InNlcnZpY2Vfcm9sZSIsImlhdCI6MTc3ODM4NDk3MSwiZXhwIjoyMDkzOTYwOTcxfQ.gc-oTwR7sD-_OBjGi9nm09Ux0vQUDWNZzb3sMwNmhoQ';
+const SERVICE_KEY  = process.env.SUPABASE_SERVICE_ROLE_KEY;
+if (!SERVICE_KEY) {
+  console.error('Set SUPABASE_SERVICE_ROLE_KEY in your environment before running this script.');
+  process.exit(1);
+}
 
 if (typeof globalThis.WebSocket === 'undefined') {
   globalThis.WebSocket = class FakeWS { constructor(){} close(){} };
